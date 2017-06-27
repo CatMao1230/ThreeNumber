@@ -1,12 +1,18 @@
-x = []
-with open("arr.dat") as fo:
-	while 1:
-	    line = fo.readline()
-	    if line == "":
-	        break
-	    line = line[:len(line) - 1]
-	    x.append(line)
+import sys
 
-x.sort()
-for i in range(-1, -4, -1):
-	print x[i]
+x = []
+with open(sys.argv[1]) as fo:
+    while True:
+        line = fo.readline()
+        if line == "":
+            break
+        line = line.strip()
+        x.append(line)
+
+for i in range(3):
+    max = -1
+    for j in x:
+        if j > max:
+        	max = j
+    print max
+    del x[x.index(max)]
